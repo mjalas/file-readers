@@ -22,4 +22,5 @@ setup(
     author_email=metadata.AUTHOR_EMAIL,
     license=metadata.LICENSE,
     packages=find_packages(exclude=['tests']),
+    install_requires=['openpyxl'],
 )
