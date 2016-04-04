@@ -1,8 +1,9 @@
 import csv
+from file_readers.file_reader import BaseFileReader
 from file_readers.data_collector import BaseDataCollector
 
 
-class CSVFileReader(object):
+class CSVFileReader(BaseFileReader):
 
     def __init__(self, data_collector, delimiter, quotechar=None, debug=False):
         """
