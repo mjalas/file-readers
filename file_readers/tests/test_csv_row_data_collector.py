@@ -1,5 +1,6 @@
 from unittest import TestCase
-from file_readers.csv_row_data_collector import CSVRowDataCollector
+
+from file_readers.csv.csv_row_data_collector import CSVRowDataCollector
 
 
 class TestCSVRowDataCollector(TestCase):

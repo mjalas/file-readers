@@ -1,5 +1,6 @@
 from unittest import TestCase
-from file_readers.csv_filereader import CSVFileReader
+
+from file_readers.csv.csv_filereader import CSVFileReader
 from file_readers.data_collector import BaseDataCollector
 
 
