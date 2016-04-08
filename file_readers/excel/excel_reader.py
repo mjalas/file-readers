@@ -1,7 +1,7 @@
 from file_readers.file_reader import BaseFileReader
 from file_readers.data_collector import BaseDataCollector
 from openpyxl import load_workbook
-from openpyxl.cell import get_column_letter, column_index_from_string
+from openpyxl.cell import get_column_letter
 
 
 class ExcelReader(BaseFileReader):
@@ -31,23 +31,6 @@ class ExcelReader(BaseFileReader):
         min = 'A1'
         max_letter = get_column_letter(columns)
         max = max_letter + str(rows)
-        headers = []
-        data = []
 
         for rowOfCellObjects in sheet[min:max]:
             self.data_collector.collect_data(rowOfCellObjects)
-            #print(rowOfCellObjects)
-            #row = {}
-            #for cellObj in rowOfCellObjects:
-            #    if "1" in cellObj.coordinate:
-            #        headers.append(cellObj.value)
-            #        continue
-
-#                index = column_index_from_string(cellObj.coordinate[0]) - 1
- #               header = headers[index]
-  #              row[header] = cellObj.value
-#
- #           if row:
-  #              data.append(row)
-   #     return data
-
