@@ -17,10 +17,13 @@ class DefaultExcelReader(BaseFileReader):
     def set_sheet_to_read(self, sheet_name):
         self.sheet_to_read = sheet_name
 
+    def get_sheet_names(self, filename):
+        return ExcelReader.get_sheet_names(filename)
+
     def read_file(self, filename):
         self.reader.set_sheet_to_read(self.sheet_to_read)
         self.reader.read_file(filename)
-        self.data = self.collector.data
+        self.data = self.data_collector.data
 
     def get_data(self):
         return self.data
