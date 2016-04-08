@@ -1,7 +1,9 @@
 from unittest import TestCase
-
+import os
 from file_readers.csv.csv_filereader import CSVFileReader
 from file_readers.data_collector import BaseDataCollector
+
+base_path = os.path.dirname(__file__)
 
 
 class DummyDataCollector(BaseDataCollector):
@@ -30,7 +32,7 @@ def data_collector(data, row):
 class TestCSVFileReader(TestCase):
 
     def test_read_file(self):
-        test_file = "data/test.csv"
+        test_file = base_path + "/data/test.csv"
         collector = DummyDataCollector()
         reader = CSVFileReader(data_collector=collector, delimiter=";")
         reader.read_file(test_file)
@@ -40,7 +42,7 @@ class TestCSVFileReader(TestCase):
         self.assertEqual(row['title'], 'Developer')
 
     def test_read_data_from_file(self):
-        test_file = "data/test.csv"
+        test_file = base_path + "/data/test.csv"
         data = CSVFileReader.read_data_from_file(test_file, func=data_collector, header='Name', delimiter=";")
         row = data[0]
         self.assertEqual(row['name'], 'John')

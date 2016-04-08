@@ -21,6 +21,9 @@ setup(
     author=metadata.AUTHOR,
     author_email=metadata.AUTHOR_EMAIL,
     license=metadata.LICENSE,
-    packages=find_packages(exclude=['tests']),
+    packages=find_packages(exclude=['csv/tests', 'excel/tests']),
+    setup_requires=['nose>=1.0', 'coverage>=4.0.3', 'openpyxl>=2.3.3'],
+    test_suite='nose.collector',
+    tests_require=['nose'],
     install_requires=['openpyxl'],
 )
