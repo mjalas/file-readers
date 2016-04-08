@@ -13,7 +13,7 @@ class TestExcelReader(TestCase):
         sheets = ExcelReader.get_sheet_names(test_file)
         self.assertEqual('Personnel', sheets[0])
 
-    def test_read_file(self):        
+    def test_read_file(self):
         test_file = base_path + "/data/test.xlsx"
         collector = ExcelDataCollector()
         reader = ExcelReader(data_collector=collector)
