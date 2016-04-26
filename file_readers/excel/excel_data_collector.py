@@ -17,14 +17,14 @@ class ExcelDataCollector(BaseDataCollector):
         """
 
         row = {}
-        for cellObj in source:
-            if "1" in cellObj.coordinate:
-                self.headers.append(cellObj.value)
+        for cell_object in source:
+            if "1" in cell_object.coordinate:
+                self.headers.append(cell_object.value)
                 continue
 
-            index = column_index_from_string(cellObj.coordinate[0]) - 1
+            index = column_index_from_string(cell_object.coordinate[0]) - 1
             header = self.headers[index]
-            row[header] = cellObj.value
+            row[header] = cell_object.value
         if self.debug:
             print(row)
         if row:
