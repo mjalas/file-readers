@@ -1,5 +1,5 @@
 NAME = 'file-readers'
-VERSION = '0.0.5'
+VERSION = '0.0.6'
 DESCRIPTION = 'Library of different types of file reader and data collector classes.'
 URL = 'https://github.com/mjalas/file-readers'
 AUTHOR = 'Mats Jalas'
