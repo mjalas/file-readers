@@ -28,9 +28,12 @@ class ExcelReader(BaseFileReader):
         sheet = work_book.get_sheet_by_name(self.sheet_to_read)
         rows = sheet.max_row
         columns = sheet.max_column
-        min = 'A1'
-        max_letter = get_column_letter(columns)
-        max = max_letter + str(rows)
 
-        for rowOfCellObjects in sheet[min:max]:
-            self.data_collector.collect_data(rowOfCellObjects)
+        for row in range(1, rows+1):
+            row_objects = []
+            for column in range(1, columns+1):
+                col_coordinate = get_column_letter(column) + str(row)
+                cell_object = sheet[col_coordinate]
+                row_objects.append(cell_object)
+            row_of_cell_objects = tuple(row_objects)
+            self.data_collector.collect_data(row_of_cell_objects)
