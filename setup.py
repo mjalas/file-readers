@@ -24,17 +24,10 @@ setup(
     author=metadata.AUTHOR,
     author_email=metadata.AUTHOR_EMAIL,
     license=metadata.LICENSE,
-     # See https://PyPI.python.org/PyPI?%3Aaction=list_classifiers
-    classifiers=[
-        'Development Status :: 3 - Alpha',
-        'Intended Audience :: Developers',
-        'Topic :: Software Development :: Libraries',
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3.5',
-    ],
-    packages=find_packages(exclude=['csv/tests', 'excel/tests']),
-    setup_requires=['nose>=1.0', 'coverage>=4.0.3', 'openpyxl>=2.3.4'],
-    test_suite='nose.collector',
-    tests_require=['nose'],
-    install_requires=['openpyxl'],
+    classifiers=metadata.classifiers,
+    packages=find_packages(exclude=metadata.exclude),
+    setup_requires=metadata.setup_requires,
+    test_suite=metadata.test_suite,
+    tests_require=metadata.tests_require,
+    install_requires=metadata.install_requires,
 )
