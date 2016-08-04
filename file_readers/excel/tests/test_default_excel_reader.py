@@ -19,6 +19,14 @@ class TestDefaultExcelReader(TestCase):
         reader.set_sheet_to_read("Personnel")
         reader.read_file(test_file)
         result_row = reader.data[0]
-        self.assertEqual(result_row['Name'], 'John')
-        self.assertEqual(result_row['Age'], 24)
-        self.assertEqual(result_row['Title'], "Developer")
+        self.assertEqual('John', result_row['Name'])
+        self.assertEqual(24, result_row['Age'])
+        self.assertEqual("Developer", result_row['Title'])
+
+    def test_read_medium_file(self):
+        test_file = base_path + "/data/test.xlsx"
+        reader = DefaultExcelReader()
+        reader.set_sheet_to_read("Params")
+        reader.read_file(test_file)
+        data = reader.get_data()
+        self.assertEqual(222, len(data))
