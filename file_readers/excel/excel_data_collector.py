@@ -18,7 +18,7 @@ class ExcelDataCollector(BaseDataCollector):
 
         row = {}
         for cell_object in source:
-            if "1" in cell_object.coordinate:
+            if len(cell_object.coordinate) == 2 and "1" in cell_object.coordinate:
                 self.headers.append(cell_object.value)
                 continue
 
