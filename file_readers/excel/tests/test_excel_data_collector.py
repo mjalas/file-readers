@@ -1,13 +1,7 @@
 from unittest import TestCase
 from file_readers.excel.excel_data_collector import ExcelDataCollector
+from file_readers.excel.tests.simple_cell import SimpleCell
 from openpyxl.cell import Cell
-
-
-class SimpleCell(object):
-    # TODO: Figure out how to use openpyxl Cell objects instead. Could not create a Cell object with a value..
-    def __init__(self, coordinate, value):
-        self.coordinate = coordinate
-        self.value = value
 
 
 class TestExcelDataCollector(TestCase):
